@@ -73,6 +73,7 @@ main{
     border-radius: 2px;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 .tipoStatus{
     min-height: 40px;
@@ -80,9 +81,11 @@ main{
     border-radius: 2px;
     display: flex;
     align-items: center;  
+    width: 100%;
 }
 .tipoMensagemPrivada{
     min-height: 40px;
+    width: 100%;
     background: #FFDEDE;
     border-radius: 2px; 
     display: flex;
