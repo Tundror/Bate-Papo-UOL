@@ -19,8 +19,7 @@ header{
     margin-right: 22px;
 }
 .logo{
-    width: 75px;
-    height: 53px;
+    
     margin-left: 22px;
 }
 footer{
@@ -64,3 +63,28 @@ input{
   ::-ms-input-placeholder { /* Microsoft Edge */
     color: #000000;
   }
+main{
+    margin-top: 106px;
+    margin-bottom: 80px;
+}
+.tipoMensagem{
+    min-height: 40px;
+    background: #FFFFFF;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+}
+.tipoStatus{
+    min-height: 40px;
+    background: #DCDCDC;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;  
+}
+.tipoMensagemPrivada{
+    min-height: 40px;
+    background: #FFDEDE;
+    border-radius: 2px; 
+    display: flex;
+    align-items: center;
+}
