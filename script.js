@@ -54,11 +54,16 @@ function conexaoInstavel(resposta){
 function userArrived(resposta){
     console.log("usuario logado");
     console.log(resposta);
+    pegarMensagens();
+    const obj2 = {name:usuarioInicial};
+    manterlogado(obj2);
 }
 function userNotArrived(resposta){
     console.log('usuario nao logado');
-    console.log(resposta);
-    window.location.reload();
+    console.log(resposta);  
+    alert("Nome ja em uso, favor inserir outro");
+    entrarNaSala();
+    console.log("chegou ate aqui");
 }
 
 function exibirMensagens(){
@@ -91,7 +96,7 @@ function exibirMensagens(){
     }
     }
 }
-pegarMensagens();
+
 function pegarMensagens(){
     const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
     promise.then(messagesArrived);
