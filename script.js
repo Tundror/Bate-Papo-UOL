@@ -3,11 +3,13 @@ let usuarioInicial;
 entrarNaSala();
 function entrarNaSala(){
     usuarioInicial = prompt('Qual o seu nome?');
-    const obj = {name:usuarioInicial};
+    const obj = 
+    {
+        name: usuarioInicial
+    };
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', obj);
     promise.then(userArrived);
     promise.catch(userNotArrived);
-    manterlogado(obj);
 }
 function manterlogado(usuario){
     setTimeout((manterconexao),5000,usuario);
@@ -21,7 +23,8 @@ function manterconexao(usuario){
 }
 function enviarMensagem(){
     let mensagem = document.querySelector('input');
-    let objMensagem = {
+    let objMensagem = 
+    {
         from: usuarioInicial,
         to: "Todos",
         text: mensagem.value,
@@ -53,17 +56,25 @@ function conexaoInstavel(resposta){
 function userArrived(resposta){
     console.log("usuario logado");
     console.log(resposta);
-    pegarMensagens();
     const obj2 = {name:usuarioInicial};
-    manterlogado(obj2);
+    
+    if(resposta.status===200){
+        manterconexao(obj2);
+        pegarMensagens();
+    }
+    
 }
 function userNotArrived(resposta){
     console.log('usuario nao logado');
     console.log(resposta);  
-    alert("Nome ja em uso, favor inserir outro");
-    entrarNaSala();
-    console.log("chegou ate aqui");
+    
+    if(resposta.response.status===400){
+        alert("Nome ja em uso, favor inserir outro");
+        entrarNaSala();
+        console.log("chegou ate aqui");
+    }
 }
+    
 
 function exibirMensagens(){
     const listaMensagens = document.querySelector('.mensagens');
@@ -103,7 +114,7 @@ function pegarMensagens(){
     setTimeout((pegarMensagens),3000);  
 }
 function messagesArrived(resposta){
-    console.log('deu bom');
+    console.log('mensagens chegaram');
     console.log(resposta);
     mensagens = resposta.data;
     exibirMensagens();
