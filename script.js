@@ -1,5 +1,4 @@
 let mensagens = [];
-console.log(axios.get("https://mock-api.driven.com.br/api/v6/uol/messages"));
 let usuarioInicial;
 entrarNaSala();
 function entrarNaSala(){
