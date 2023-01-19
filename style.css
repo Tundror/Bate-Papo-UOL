@@ -66,6 +66,7 @@ input{
 main{
     margin-top: 106px;
     margin-bottom: 80px;
+    width: 100%;
 }
 .tipoMensagem{
     min-height: 40px;
