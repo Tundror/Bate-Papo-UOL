@@ -12,7 +12,7 @@ function entrarNaSala(){
     promise.catch(userNotArrived);
 }
 function manterlogado(usuario){
-    setTimeout((manterconexao),5000,usuario);
+    setTimeout((manterconexao),3000,usuario);
 }
 function manterconexao(usuario){
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/status',usuario);
