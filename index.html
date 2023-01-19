@@ -25,9 +25,10 @@
     </main>
     <footer>
         <div>
-            <input type="text" placeholder="Escreva aqui...">
+            <input data-test="input-message" type="text" placeholder="Escreva aqui...">
         </div>
-        <ion-icon onclick="enviarMensagem()"class="send" name="paper-plane-outline"></ion-icon>
+        <button onclick="enviarMensagem()" data-test="send-message"><ion-icon class="send" name="paper-plane-outline"></ion-icon></button>
+        
     </footer>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

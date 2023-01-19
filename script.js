@@ -32,15 +32,16 @@ function enviarMensagem(){
     promise.then(mensagemEnviada);
     promise.catch(mensagemFalha);
     mensagem.value = '';
-    pegarMensagens();
 }
 function mensagemEnviada(resposta){
     console.log('mensagem enviada com sucesso');
     console.log(resposta);
+    pegarMensagens();
 }
 function mensagemFalha(resposta){
     console.log('mensagem falhou');
     console.log(resposta);
+    window.location.reload();
 }
 function conexaoEstavel(resposta){
     console.log('conexao estavel');
@@ -57,6 +58,7 @@ function userArrived(resposta){
 function userNotArrived(resposta){
     console.log('usuario nao logado');
     console.log(resposta);
+    window.location.reload();
 }
 
 function exibirMensagens(){
@@ -65,24 +67,27 @@ function exibirMensagens(){
     for(let cont=0; cont<mensagens.length; cont++){
     if(mensagens[cont].type === 'message'){
         let template =`
-        <li class="tipoMensagem">
+        <li class="tipoMensagem" data-test="message">
             <span style="color:#AAAAAA">(${mensagens[cont].time})</span>&nbsp<span style="font-weight:700">${mensagens[cont].from}</span>&nbsppara&nbsp<span style="font-weight:700">${mensagens[cont].to}</span>: ${mensagens[cont].text}
         </li>`;
         listaMensagens.innerHTML = listaMensagens.innerHTML + template;
+        listaMensagens.lastChild.scrollIntoView();
         }
-    else if(mensagens[cont].type === 'private_message'){
+    else if(mensagens[cont].type === 'private_message' && mensagens[cont].to === usuarioInicial){
         let template =`
-        <li class="tipoMensagemPrivada">
+        <li class="tipoMensagemPrivada" data-test="message">
             <span style="color:#AAAAAA">(${mensagens[cont].time})</span>&nbsp<span style="font-weight:700">${mensagens[cont].from}</span>&nbspreservadamente&nbsppara&nbsp<span style="font-weight:700">${mensagens[cont].to}</span>: ${mensagens[cont].text}
         </li>`;
         listaMensagens.innerHTML = listaMensagens.innerHTML + template;
+        listaMensagens.lastChild.scrollIntoView();
     }
     else if(mensagens[cont].type === 'status'){
         let template =`
-        <li class="tipoStatus">
+        <li class="tipoStatus" data-test="message">
             <span style="color:#AAAAAA">(${mensagens[cont].time})</span>&nbsp<span style="font-weight:700">${mensagens[cont].from}</span>&nbsp${mensagens[cont].text}
         </li>`;
         listaMensagens.innerHTML = listaMensagens.innerHTML + template;
+        listaMensagens.lastChild.scrollIntoView();
     }
     }
 }
