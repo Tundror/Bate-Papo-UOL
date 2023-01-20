@@ -7,6 +7,7 @@ header{
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 100%;
     height: 80px;
     background: #FFFFFF;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
@@ -27,6 +28,7 @@ footer{
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 100%;
     height: 80px;
     background: #FFFFFF;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
@@ -67,6 +69,7 @@ main{
     margin-top: 106px;
     margin-bottom: 80px;
     width: 100%;
+    max-width: 100%;
 }
 .tipoMensagem{
     min-height: 40px;
@@ -75,7 +78,9 @@ main{
     display: flex;
     align-items: center;
     width: 100%;
+    max-width: 100%;
     margin-bottom: 4px;
+    overflow: scroll;
 }
 .tipoStatus{
     min-height: 40px;
@@ -84,18 +89,25 @@ main{
     display: flex;
     align-items: center;  
     width: 100%;
+    max-width: 100%;
     margin-bottom: 4px;
+    overflow: scroll;
 }
 .tipoMensagemPrivada{
     min-height: 40px;
     width: 100%;
+    max-width: 100%;
     background: #FFDEDE;
     border-radius: 2px; 
     display: flex;
     align-items: center;
     margin-bottom: 4px;
+    overflow: scroll;
 }
 button{
     border: none;
     background-color: #FFFFFF;
+}
+::-webkit-scrollbar {
+    display: none;
 }
