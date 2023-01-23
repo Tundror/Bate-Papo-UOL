@@ -88,7 +88,7 @@ function exibirMensagens(){
         listaMensagens.innerHTML = listaMensagens.innerHTML + template;
         listaMensagens.lastChild.scrollIntoView();
         }
-    else if(mensagens[cont].type === 'private_message' && mensagens[cont].to === usuarioInicial){
+    else if(mensagens[cont].type === 'private_message' && (mensagens[cont].to === usuarioInicial || mensagens[cont].from === usuarioInicial) ){
         let template =`
         <li class="tipoMensagemPrivada" data-test="message">
             <span style="color:#AAAAAA">(${mensagens[cont].time})</span>&nbsp<span style="font-weight:700">${mensagens[cont].from}</span>&nbspreservadamente&nbsppara&nbsp<span style="font-weight:700">${mensagens[cont].to}</span>: ${mensagens[cont].text}
